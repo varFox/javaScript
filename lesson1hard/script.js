@@ -14,6 +14,11 @@ function sum() {
   return s;
 }
 
+
+
 rez = sum()**3 + '';
 console.log(sum());
 alert(rez[0] + rez[1]);
+
+//второй вариант
+console.log(rez.split('', 2));

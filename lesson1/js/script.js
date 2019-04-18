@@ -2,8 +2,8 @@
 
 let money,
   time,
-  expens,
-  moneyExpens,
+  expens = '',
+  moneyExpens = 0,
   everyDay;
 
 let appData = {
@@ -29,29 +29,40 @@ function checkMoney() {
     checkMoney();
   }
 }
+checkMoney();
+
+// function checExpens() {
+//   expens = prompt("Введите обязательную статью расходов в этом месяце");
+//   moneyExpens = +prompt("Во сколько обойдётся");
+//   everyDay = everyDay - moneyExpens;
+//   if (moneyExpens && moneyExpens < money && everyDay > 0) {
+
+//     if (confirm('В этом мясяце Ваш ежедневный бюджет составляет ' + everyDay / 30 + 
+//                 '. Добавь ежемесечную статью разходов?')) {
+//       checExpens();
+//     } else {
+//       document.querySelector('.rez > p').innerHTML = `Общий бюджет - ${appData.budget}.<br>
+//                               Сумма обязательных трат - ${money - everyDay}<br>
+//                               Ежедневный бюджет составляет - ${everyDay/30}`;
+//     }
+//   } else if ((moneyExpens && moneyExpens > money) || everyDay < 0) {
+//     console.log('С таким ежемесечным доходом вы не можете позволить себе такие траты');
+//   } else {
+//     console.log('Введите, пожалуйста, корректные данные');
+//   }
+// }
 
 function checExpens() {
-  expens = prompt("Введите обязательную статью расходов в этом месяце");
-  moneyExpens = +prompt("Во сколько обойдётся");
+  expens = prompt('Введите обязательную статью расходов в этом месяце');
+  moneyExpens = +prompt('Во сколько обойдётся');
   everyDay = everyDay - moneyExpens;
   if (moneyExpens && moneyExpens < money && everyDay > 0) {
-
-    if (confirm('В этом мясяце Ваш ежедневный бюджет составляет ' + everyDay / 30 + 
-                '. Добавь ежемесечную статью разходов?')) {
-      checExpens();
-    } else {
-      document.querySelector('.rez > p').innerHTML = `Общий бюджет - ${appData.budget}.<br>
-                              Сумма обязательных трат - ${money - everyDay}<br>
-                              Ежедневный бюджет составляет - ${everyDay/30}`;
-    }
+    appData.expenses[expens] = moneyExpens;
   } else if ((moneyExpens && moneyExpens > money) || everyDay < 0) {
-    document.querySelector('.rez > p').innerHTML = 'С таким ежемесечным доходом вы не можете позволить себе такие траты';
+    console.log('С таким ежемесечным доходом вы не можете позволить себе такие траты');
   } else {
-    document.querySelector('.rez > p').innerHTML = 'Введите, пожалуйста корректные данные';
+    console.log('Введите, пожалуйста, корректные данные');
   }
 }
-
-document.querySelector('.budget').addEventListener('click', () => {
-  checkMoney();
-  checExpens();
-})
+checExpens();
+checExpens();

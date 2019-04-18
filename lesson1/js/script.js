@@ -44,3 +44,4 @@ function checExpens() {
 }
 checExpens();
 checExpens();
+console.log('Бюджет на день ' + everyDay/30);

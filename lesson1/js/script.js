@@ -2,8 +2,8 @@
 
 let money,
   time,
-  expens = '',
-  moneyExpens = 0,
+  expens,
+  moneyExpens,
   everyDay;
 
 let appData = {
@@ -14,7 +14,6 @@ let appData = {
   income: [],
   savings: false
 }
-
 
 function checkMoney() {
   money = +prompt("Ваш бюджет на месяц?");
@@ -30,27 +29,6 @@ function checkMoney() {
   }
 }
 checkMoney();
-
-// function checExpens() {
-//   expens = prompt("Введите обязательную статью расходов в этом месяце");
-//   moneyExpens = +prompt("Во сколько обойдётся");
-//   everyDay = everyDay - moneyExpens;
-//   if (moneyExpens && moneyExpens < money && everyDay > 0) {
-
-//     if (confirm('В этом мясяце Ваш ежедневный бюджет составляет ' + everyDay / 30 + 
-//                 '. Добавь ежемесечную статью разходов?')) {
-//       checExpens();
-//     } else {
-//       document.querySelector('.rez > p').innerHTML = `Общий бюджет - ${appData.budget}.<br>
-//                               Сумма обязательных трат - ${money - everyDay}<br>
-//                               Ежедневный бюджет составляет - ${everyDay/30}`;
-//     }
-//   } else if ((moneyExpens && moneyExpens > money) || everyDay < 0) {
-//     console.log('С таким ежемесечным доходом вы не можете позволить себе такие траты');
-//   } else {
-//     console.log('Введите, пожалуйста, корректные данные');
-//   }
-// }
 
 function checExpens() {
   expens = prompt('Введите обязательную статью расходов в этом месяце');

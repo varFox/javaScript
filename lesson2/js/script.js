@@ -3,8 +3,7 @@
 let money,
   time,
   expens,
-  moneyExpens,
-  everyDay;
+  moneyExpens;
 
 let appData = {
   budget: 0,
@@ -17,7 +16,7 @@ let appData = {
 
 function checkMoney() {
   money = +prompt("Ваш бюджет на месяц?");
-  everyDay = money;
+  appData.moneyPerDay = money;
   time = prompt("Введите дату в формате YYYY-MM-DD");
   if (money && money > 0) {
     appData.budget = money;
@@ -33,7 +32,7 @@ checkMoney();
 function checExpens() {
   expens = prompt('Введите обязательную статью расходов в этом месяце');
   moneyExpens = +prompt('Во сколько обойдётся');
-  everyDay = everyDay - moneyExpens;
+  appData.moneyPerDay = appData.moneyPerDay - moneyExpens;
   if (moneyExpens && moneyExpens < money && everyDay > 0) {
     appData.expenses[expens] = moneyExpens;
   } else if ((moneyExpens && moneyExpens > money) || everyDay < 0) {
@@ -76,4 +75,12 @@ for(;Object.keys(appData.expenses).length < 2;) {
 //   checExpens();
 // } while(++j < 2)
 
-alert('Бюджет на день ' + everyDay/30);
+if (appData.moneyPerDay <= 100) {
+  console.log("Минимальный уровень достатка");
+}else if(appData.moneyPerDay > 100 && appData.moneyPerDay <= 2000) {
+  console.log("Средний уровень достатка");
+}else if(appData.moneyPerDay > 100 && appData.moneyPerDay <= 2000) {
+  console.log("Высокий уровень достатка");
+}else{
+  console.log("Что-то тут не так");
+}

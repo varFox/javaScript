@@ -2,8 +2,6 @@
 
 let money,
   time,
-  expens,
-  moneyExpens,
   everyDay;
 
 let appData = {
@@ -31,8 +29,8 @@ function checkMoney() {
 checkMoney();
 
 function checExpens() {
-  expens = prompt('Введите обязательную статью расходов в этом месяце');
-  moneyExpens = +prompt('Во сколько обойдётся');
+  let expens = prompt('Введите обязательную статью расходов в этом месяце');
+  let moneyExpens = +prompt('Во сколько обойдётся');
   everyDay = everyDay - moneyExpens;
   if (moneyExpens && moneyExpens < money && everyDay > 0) {
     appData.expenses[expens] = moneyExpens;

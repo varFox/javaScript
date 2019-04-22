@@ -1,0 +1,19 @@
+body {
+  background-color: #eee;
+}
+.budget, .rez {
+  width: 400px;
+  height: 200px;
+  padding: 40px;
+  background-color: #7986CB;
+  text-align: center;
+
+  box-sizing: border-box'
+}
+.budget {
+  margin: 100px auto;
+  line-height: 200px;
+}
+.rez {
+  margin: 0 auto;
+}

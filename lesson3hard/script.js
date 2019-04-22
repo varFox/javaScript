@@ -1,33 +1,31 @@
 'use strict';
 
-let week = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресение'];
-const now = new Date();
+let str = 'урок-3-был слишком легким';
+str = (str[0].toUpperCase() + str.substring(1)).replace(/-/g, ' ');
+console.log(str);
+str = str.match(/легким/)[0].replace(/им$/, 'о');
+console.log(str);
 
-let dw = '<ul>';
-for(let i = 0; i < week.length; i++) {
-  if((i == 5 || i == 6) && now.getDay() == (i + 1)){
-    dw += '<li style="font-weight: bold; font-style: italic; color: red;">' + week[i];
-  }else if (i == 5 || i == 6) {
-    dw += '<li style="font-weight: bold; color: red;">' + week[i];
-  }else if (now.getDay() == (i + 1)) {
-    dw += '<li style="font-style: italic;">' + week[i];
+
+let arr = [20, 33, 1, 'Человек', 2, 3];
+// квадратный корень из суммы кубов
+let a = 0;
+for(let i = 0; i < arr.length; i++) {
+  if(typeof(arr[i]) === 'number'){
+    a += arr[i]**3;
+  }
+}
+console.log(Math.sqrt(a));
+
+function sliceStr(str) {
+  if(typeof(str) === 'string') {
+    str = str.trim();
+    if(str.length > 50) {
+      str = str.slice(0, 49) + '...';
+    }
+    console.log(str);
   }else {
-    dw += '<li>' + week[i];
+    console.log('передана не строка');
   }
 }
-dw += '</ul>';
-document.querySelector('body').innerHTML = dw;
-
-
-let arr = ['51518613', '764156', '8486', '84614', '346486', '784521'];
-
-for(let key in arr){
-  if(arr[key].split('', 1) == 3 || arr[key].split('', 1) == 7){
-    console.log(arr[key]);
-  }
-}
-
-// другой вариант
-// for(let key in arr) {
-//   console.log(arr[key].match(/^3|7/));
-// }
+sliceStr('    fgjbgjоздайте функцию, которая принимает 1 аргумент (название произвольное)bvghb bnnbhbh ghnjj        ');

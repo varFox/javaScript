@@ -6,7 +6,6 @@ console.log(str);
 str = str.match(/легким/)[0].replace(/им$/, 'о');
 console.log(str);
 
-
 let arr = [20, 33, 1, 'Человек', 2, 3];
 // квадратный корень из суммы кубов
 let a = 0;
@@ -16,6 +15,8 @@ for(let i = 0; i < arr.length; i++) {
   }
 }
 console.log(Math.sqrt(a));
+
+
 
 function sliceStr(str) {
   if(typeof(str) === 'string') {
@@ -28,4 +29,4 @@ function sliceStr(str) {
     console.log('передана не строка');
   }
 }
-sliceStr('    fgjbgjоздайте функцию, которая принимает 1 аргумент (название произвольное)bvghb bnnbhbh ghnjj        ');
+

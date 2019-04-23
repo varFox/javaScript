@@ -31,7 +31,9 @@ function chooseExpenses() {
     let a = prompt('Введите обязательную статью расходов в этом месяце', '');
     let b = +prompt('Во сколько обойдётся');
     moneyPerDay -= b;
-    if (b && b < money && moneyPerDay > 0 && b) {
+    if (b < money && moneyPerDay > 0 && typeof(a) === 'string' 
+        && (typeof(a)) != null && (typeof(b)) != null 
+        && a != '' && b != '' && a.length < 50) {
       appData.expenses[a] = b;
     } else if ((b && b > money) || moneyPerDay < 0) {
       console.log('Ваших ежемесечных доходов не хватает на такие траты');
@@ -44,7 +46,8 @@ chooseExpenses();
 
 //расчёт дневного бюджета
 function detectDayBudget() {
-  alert('Бюджет на день ' + (moneyPerDay / 30).toFixed());
+  appData.moneyPerDay = (moneyPerDay/30).toFixed();
+  alert('Бюджет на день ' + (appData.moneyPerDay));
 }
 detectDayBudget();
 

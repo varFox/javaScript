@@ -10,19 +10,11 @@ function getFriendlyNumbers(start, end) {
   } else {
     let s1, s2;
     for (let i = start; i <= end; i++) {
-      s1 = 0;
-      s2 = 0;
-      for (let j = 1; j < i; j++) {
-        if (i % j == 0) {
-          s1 += j;
-        }
-      }
-      if (s1 > start && s1 < end && s1 > i) {
-        for (let j = 1; j < s1; j++) {
-          if (s1 % j == 0) {
-            s2 += j;
-          }
-        }
+      s1 = sum(i);
+      if (s1 > i && s1 < end) {
+        s2 = sum(s1);
+      } else {
+        s2 = 0;
       }
       if (i == s2 && s1 != 0) {
         arr.push([i, s1]);
@@ -30,4 +22,14 @@ function getFriendlyNumbers(start, end) {
     }
   }
   return arr;
+}
+
+function sum(a) {
+  let s = 0;
+  for (let j = 1; j < a; j++) {
+    if (a % j == 0) {
+      s += j;
+    }
+  }
+  return s;
 }

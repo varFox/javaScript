@@ -11,11 +11,7 @@ function getFriendlyNumbers(start, end) {
     let s1, s2;
     for (let i = start; i <= end; i++) {
       s1 = sum(i);
-      if (s1 > i && s1 <= end) {
-        s2 = sum(s1);
-      } else {
-        s2 = 0;
-      }
+      (s1 > i && s1 <= end) ? s2 = sum(s1) : s2 = 0;
       if (i == s2 && s1 != 0) {
         arr.push([i, s1]);
       }

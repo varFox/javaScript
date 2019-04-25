@@ -30,12 +30,6 @@ document.querySelector('body #date').innerHTML = zero(now) + ' ' + weekDay(now);
 document.querySelector('#btn').addEventListener('click', () => {
   let a1 = new Date(document.querySelector('#a1').value),
       a2 = new Date(document.querySelector('#a2').value);
-  document.querySelector('#result').value = (Math.ceil(Math.ceil(Math.abs(a2.getTime() - a1.getTime()))/(1000*3600*24)));
-
+  
+      document.querySelector('#result').value = (Math.ceil(Math.ceil(Math.abs(a2.getTime() - a1.getTime()))/(1000*3600*24)));
 })
-// ДОПОЛНИТЕЛЬНОЕ ЗАДАНИЕ:
-
-// 4) Напишите функцию, которая выводит на страницу разницу между двумя датами в количестве дней
-
-// ·        На странице создайте интерфейс для её отображения: как минимум - 3 input’a: 
-// для двух ввода дат и вывода результата.

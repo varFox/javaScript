@@ -22,7 +22,7 @@ function getFriendlyNumbers(start, end) {
 
 function sum(a) {
   let s = 0;
-  for (let j = 1; j < a; j++) {
+  for (let j = 1; j < (a); j++) {
     if (a % j == 0) {
       s += j;
     }

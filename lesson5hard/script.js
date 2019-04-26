@@ -1,22 +1,10 @@
 'use strict';
 
-var now = new Date();
-
 function zero(a) {
-  let hours   = a.getHours(),
-      minutes = a.getMinutes(),
-      seconds = a.getSeconds(),
-      day     = a.getDate(),
-      month   = a.getMonth() + 1,
-      year    = a.getFullYear();
-      console.log(seconds);
-
-  if (hours   < 10) { hours   = '0' + hours;   }
-  if (minutes < 10) { minutes = '0' + minutes; }
-  if (seconds < 10) { seconds = '0' + seconds; }
-  if (day     < 10) { day     = '0' + day;     }
-  if (month   < 10) { month   = '0' + month;   }
-  return hours + ':' + minutes + ':' + seconds + ' ' + day + '.' + month + '.' + year;
+  if (a < 10) {
+    a = '0' + a;
+  }
+  return a;
 }
 
 function weekDay(a) {
@@ -25,11 +13,18 @@ function weekDay(a) {
   return arr[wDay];
 }
 
-document.querySelector('body #date').innerHTML = zero(now) + ' ' + weekDay(now);
+setInterval(function() {
+  let now = new Date();
+  document.querySelector('body #date').textContent = zero(now.getHours()) + ':' + zero(now.getMinutes()) + 
+        ':' + zero(now.getSeconds()) + ' ' + zero(now.getDate()) + '.' + zero(now.getMonth() + 1) + 
+        '.' + zero(now.getFullYear()) + ' ' + weekDay(now);
+}, 1000);
+
 
 document.querySelector('#btn').addEventListener('click', () => {
   let a1 = new Date(document.querySelector('#a1').value),
       a2 = new Date(document.querySelector('#a2').value);
-  
-      document.querySelector('#result').value = (Math.ceil(Math.ceil(Math.abs(a2.getTime() - a1.getTime()))/(1000*3600*24)));
-})
+  let res = Math.abs(a2.getTime() - a1.getTime());
+  res = Math.ceil(res/(1000*3600*24));
+      document.querySelector('#result').value = res;
+});

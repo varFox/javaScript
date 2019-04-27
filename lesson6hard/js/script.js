@@ -132,6 +132,7 @@ chooseSum.addEventListener('input', () => {
   if (appData.savings) {
     let sum = +chooseSum.value,
         percent = +choosePercent.value;
+
     appData.monthIncome = sum / 100 / 12 * percent;
     appData.yearIncome = sum / 100 * percent;
 
@@ -143,7 +144,7 @@ chooseSum.addEventListener('input', () => {
 choosePercent.addEventListener('input', () => {
   if (appData.savings) {
     let sum = +chooseSum.value,
-        percent = +choosePercent.value;
+        percent = +choosePercent.value.replace(",", ".");
     appData.monthIncome = sum / 100 / 12 * percent;
     appData.yearIncome = sum / 100 * percent;
 
@@ -190,3 +191,4 @@ expensesItem[1].addEventListener('input', () => {
 expensesItem[3].addEventListener('input', () => {
   expensesItem[3].value = expensesItem[3].value.match(/[0-9]+/g);
 });
+choosePercent.value.match(/[0-9]+(.|,)*[0-9]/g);

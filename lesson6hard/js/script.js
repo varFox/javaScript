@@ -191,4 +191,3 @@ expensesItem[1].addEventListener('input', () => {
 expensesItem[3].addEventListener('input', () => {
   expensesItem[3].value = expensesItem[3].value.match(/[0-9]+/g);
 });
-choosePercent.value.match(/[0-9]+(.|,)*[0-9]/g);

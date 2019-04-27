@@ -23,14 +23,6 @@ let column = document.querySelectorAll('.column');
 column[1].removeChild(document.querySelector('.adv'));
 
 // 5
-let message = prompt('Какое у вас отношение к технике apple?', ''),
-    prom = document.querySelector('#prompt');
+document.querySelector('#prompt').textContent = prompt('Какое у вас отношение к технике apple?', '');
 
-setTimeout(function t() {
-  if (message != null) {
-    prom.textContent = message;
-  } else {
-    time = setTimeout(t, 200);
-  }
-}, 200);
 

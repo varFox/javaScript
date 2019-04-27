@@ -3,16 +3,13 @@
 // 1)
 let menuItem = document.querySelectorAll('.menu-item'),
     menu = document.querySelector('.menu'),
-    mI1 = menuItem[1].cloneNode(true),
-    mI2 = menuItem[2].cloneNode(true),
-    mI5 = menuItem[1].cloneNode(true);
+    li2 = document.querySelectorAll('.menu-item')[2],
+    li3 = document.querySelectorAll('.menu-item')[1],
+    li5 = li3.cloneNode(true);
 
-menuItem[2].parentNode.insertBefore(mI1,menuItem[2]);
-menuItem[1].parentNode.insertBefore(mI2,menuItem[1]);
-menuItem[1].parentNode.removeChild(menuItem[1]);
-menuItem[2].parentNode.removeChild(menuItem[2]);
-mI5.textContent = 'Пятый пункт';
-menu.appendChild(mI5);
+menu.insertBefore(li2, li3);
+li5.textContent = 'Пятый пункт';
+menu.appendChild(li5);
 
 // 2
 document.body.style.background = 'url("img/apple_true.jpg") center no-repeat';

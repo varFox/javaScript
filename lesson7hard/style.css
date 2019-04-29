@@ -1,0 +1,13 @@
+.cont {
+  width: 600px;
+  height: 100px;
+  border: 1px solid black;
+  position: relative;
+}
+.animate {
+  width: 100px;
+  height: 100px;
+  background-color: #aaa;
+  position: absolute;
+  left: 0;
+}
